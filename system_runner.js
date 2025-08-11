@@ -15,6 +15,12 @@ let songIsPlaying = false;
 let songEpoch = 0;              // millis when song starts
 let table;
 let words;
+let catSing;
+let catBelt;
+let catIdle;
+let drumIdle;
+let drumPlay1;
+let drumPlay2;
 
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
@@ -43,6 +49,12 @@ function songLoadedSoFar(soFar) {
 function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
+  catSing = loadImage('Cat1.jpg');
+  catBelt = loadImage('Cat2.jpg');
+  catIdle = loadImage('Cat3.jpg');
+  drumIdle = loadImage('drumsIdle.jpg');
+  drumPlay1 = loadImage('drumsPlay1.jpg');
+  drumPlay2 = loadImage('drumsPlay2.jpg');
 }
 
 let volumes = [];
@@ -52,7 +64,6 @@ function setup() {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
   song = loadSound('song.mp3', songLoaded, songLoadedError, songLoadedSoFar);  
-  
   frameRate(60);
   angleMode(DEGREES);
 
