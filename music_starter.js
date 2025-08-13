@@ -1,6 +1,7 @@
 let singer;
 let drums;
 let vocalSize;
+let others; 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(255);
@@ -14,29 +15,37 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  
 // changes 
 
-singer = int(map(vocal, 0, 100, 0, 4));
-if(singer <= 1){
-   image(catIdle, 70, 300);
-}else if (singer == 2){
-   image(catSing, 70, 300);
-}else {
-   image(catBelt, 70, 300);
+singer = int(map(vocal, 0, 100, 0, 3));
+for(let v = 0; v <= 2; v++){
+   image(catVocal[singer], 50, 300);
 }
 
-drums = int(map(drum, 0, 100, 0, 4));
-if (drums <= 1){
-   image(drumIdle, 200, 300);
-}else if (drums == 2){
-   image(drumPlay1, 200, 300);
-}else {
-   image(drumPlay2, 200, 300);
-
+drums = int(map(drum, 0, 100, 0, 3));
+for(let d = 0; d <= 2; d++){
+   image(catDrum[drums], 200, 300);
 }
+
+
+bassist = int(map(bass, 0, 100, 0, 3));
+for(let b = 0; b <= 2; b++){
+   image(catBass[bassist], 50, 400);
+}
+
+others = int(map(other, 0, 100, 0, 10));
+if(others < 3){
+   image(catOthers[0], 200, 150);
+} else if (others > 6){
+   image(catOthers[0], 200, 150);
+} else {
+   image(catOthers[1], 200, 150);
+}
+
+
    // display "words"
    vocalSize = map(vocal, 0, 100, 30, 70);
    textAlign(CENTER);
    textSize(vocalSize);
-   text(words, width/2, height*0.75);
+   text(words, width/3, height*0.75);
 
 }
 
