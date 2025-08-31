@@ -27,6 +27,22 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 // for(let d = 0; d <= 2; d++){
 //    image(carWiper[wiper], 0, 0);
 // }
+
+//steering wheel test
+
+let wheelAngle = map(other, 50, 100, 1, 180);
+push();
+translate(1600, 800);
+rotate(wheelAngle);
+ellipse(0, 0, 200, 400);
+pop();
+
+if(wheelAngle > 90){
+  xLights = xLights - 2;
+} else {
+  xLights = xLights + 5;
+}
+
 let speed = map(bass, 0, 100, 1, 10); //light post test
 let sLights = map(yLights, 400, 100, 1.5, 8);
 push();
@@ -53,10 +69,34 @@ yLights = 450;
 
 }
 
-//steering wheel test
+//traditional visualizer test (could be the speedometer/ dashboard? or radio)
+let vocalMap = int(map(vocal, 0, 100, 1, 12));
+let drumMap = int(map(drum, 0, 100, 1, 12));
+let bassMap = int(map(bass, 0, 100, 1, 12));
+let otherMap = int(map(other, 0 ,100, 1, 12));
+let lineStart = 850;
+let lineLength = 50;
+let lineEnd = lineStart - lineLength;
+let lineY = 750;
 
-let wheelAngle = map(vocal, 50, 100, 1, 180);
-translate(1600, 800);
-rotate(wheelAngle);
-ellipse(0, 0, 200, 400);
+for(i = 1; i < vocalMap; i++){
+  let lineStep = lineY+(i*15);
+  strokeWeight(10);
+  line(lineStart, lineStep, lineEnd, lineStep);
+}
+for(i = 1; i < drumMap; i++){
+  let lineStep = lineY+(i*15);
+  strokeWeight(10);
+  line(lineStart+75, lineStep, lineEnd+75, lineStep);
+}
+for(i = 1; i < bassMap; i++){
+  let lineStep = lineY+(i*15);
+  strokeWeight(10);
+  line(lineStart+150, lineStep, lineEnd+150, lineStep);
+}
+for(i = 1; i < otherMap; i++){
+  let lineStep = lineY+(i*15);
+  strokeWeight(10);
+  line(lineStart+225, lineStep, lineEnd+225, lineStep);
+}
 }
