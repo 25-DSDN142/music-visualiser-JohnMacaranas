@@ -1,5 +1,5 @@
-const canvasWidth = 540;
-const canvasHeight = 960;
+const canvasWidth = 1920;
+const canvasHeight = 1080;
 
 
 let mainCanvas;
@@ -20,6 +20,11 @@ let catVocal = [];
 let catDrum = [];
 let catBass = [];
 let catOthers = [];
+
+let carWheel = [];
+let carWiper = [];
+
+let bg;
 
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
@@ -48,6 +53,7 @@ function songLoadedSoFar(soFar) {
 function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
+
   catVocal.push(loadImage('Cat3.jpg'));
   catVocal.push(loadImage('Cat1.jpg'));
   catVocal.push(loadImage('Cat2.jpg'));
@@ -59,6 +65,18 @@ function preload() {
   catBass.push(loadImage('bassPlay2.jpg'));
   catOthers.push(loadImage('otherPlay1.jpg'));
   catOthers.push(loadImage('otherPlay2.jpg'));
+
+  carWheel.push(loadImage('Proto_CarWheel.png'));
+  carWheel.push(loadImage('Proto_CarWheelL.png'));
+  carWheel.push(loadImage('Proto_CarWheelR.png'));
+
+  carWiper.push(loadImage('Proto_CarWiperL.png'));
+  carWiper.push(loadImage('Proto_CarWiperLM.png'));
+  carWiper.push(loadImage('Proto_CarWiperM.png'));
+  carWiper.push(loadImage('Proto_CarWiperRM.png'));
+  carWiper.push(loadImage('Proto_CarWiperR.png'));
+
+  bg = loadImage('Proto_CarBase.png');
 }
 
 let volumes = [];
