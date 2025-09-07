@@ -1,76 +1,86 @@
-let singer;
-let drums;
-let vocalSize;
-let others; 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(255);
+  background(0, 0, 50);
   textFont('Verdana'); // please use CSS safe fonts
-  rectMode(CENTER)
   textSize(24);
-  
-   let bar_spacing = height / 10;
-   let bar_height = width / 12;
-   let bar_pos_x = width / 2;
- 
+
+  colorMode(HSB);
+
+
 // changes 
+//speedometer/ car speed (drums)\
 
-singer = int(map(vocal, 0, 100, 0, 3));
-for(let v = 0; v <= 2; v++){
-   image(catVocal[singer], 50, 300);
+image(carBG, 0, 0); //car cockpit
+let lineStart = 555;
+let lineLength = 20;
+let lineEnd = lineStart - lineLength;
+let lineX = 850; 
+
+let speed = int(map(drum, 0, 100, 100, 110));
+let speedMap = map(speed, 100, 110, 20, 30);
+for(i = 0; i < speedMap; i++){
+   let lineStep = lineX + (i*5);
+   if(speedMap > 25){
+      stroke(0, 100, 100);
+      fill(0, 100, 100)
+   } else {
+      stroke(0, 0, 0);
+      fill(0, 0, 0);
+   }
+   push();
+   strokeWeight(3);
+   line(lineStep, lineStart, lineStep, lineEnd);
+   pop();
 }
 
-drums = int(map(drum, 0, 100, 0, 3));
-for(let d = 0; d <= 2; d++){
-   image(catDrum[drums], 200, 300);
+   strokeWeight();
+   textFont(font);
+   textSize(45);
+   text(speed, 990, 530);
+
+//fuel gauge (counter)
+let count = int(counter/60);
+
+let fuel = map(count, 0, 289, 115, 10);
+let fuelColor = map(fuel, 0, 289, 150, 0);
+push();
+fill(fuelColor, 100, 100);
+strokeWeight();
+rect(903, 572, fuel, 7);
+pop();
+
+push();
+strokeWeight();
+textSize(8);
+text('E', 905, 578);
+text('F', 1012, 578);
+pop();
+
+//steering wheel (bass)
+let steeringAngle = map(bass, 50, 90, -10, 20);
+   push();
+      translate(960, 671.5);
+      rotate(steeringAngle);
+      image(wheel, -960, -671.5);
+   pop();
+
+//radio pulsing colours (other)
+let B = int(map(other, 0, 100, 39, 90));
+push();
+fill(107, 51, B);
+strokeWeight(0);
+beginShape();
+vertex(622, 470);
+vertex(759, 449);
+vertex(759, 524);
+vertex(622, 567);
+endShape();
+pop();
+
+//helmet shake (bass)
+let shake = map(other, 0, 100, 10, -20);
+translate(0, shake);
+image(helmet, 0, 0);
+
+
 }
-
-
-bassist = int(map(bass, 0, 100, 0, 3));
-for(let b = 0; b <= 2; b++){
-   image(catBass[bassist], 50, 400);
-}
-
-others = int(map(other, 0, 100, 0, 10));
-if(others < 3){
-   image(catOthers[0], 200, 150);
-} else if (others > 6){
-   image(catOthers[0], 200, 150);
-} else {
-   image(catOthers[1], 200, 150);
-}
-
-
-   // display "words"
-   vocalSize = map(vocal, 0, 100, 30, 70);
-   textAlign(CENTER);
-   textSize(vocalSize);
-   text(words, width/2, height*0.75);
-
-}
-
-   // // vocal bar is red
-   // fill(200, 0, 0);
-   // rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-   // fill(0);
-   // text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-   // // drum bar is green
-   // fill(0, 200, 0);
-   // ellipse(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-   // fill(0);
-   // text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-   // // bass bar is blue
-   // fill(50, 50, 240);
-   // rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-   // fill(0);
-   // text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-   // // other bar is white
-   // fill(200, 200, 200);
-   // rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-   // fill(0);
-   // text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-   // fill(255, 255, 0);
- 

@@ -25,6 +25,13 @@ let carWheel = [];
 let carWiper = [];
 
 let bg;
+let texture;
+let font;
+
+let wheel;
+let carBG;
+let handbrake;
+let helmet;
 
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
@@ -54,29 +61,34 @@ function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
 
-  catVocal.push(loadImage('Cat3.jpg'));
-  catVocal.push(loadImage('Cat1.jpg'));
-  catVocal.push(loadImage('Cat2.jpg'));
-  catDrum.push(loadImage('drumsIdle.jpg'));
-  catDrum.push(loadImage('drumsPlay1.jpg'));
-  catDrum.push(loadImage('drumsPlay2.jpg'));
-  catBass.push(loadImage('bassIdle.jpg'));
-  catBass.push(loadImage('bassPlay1.jpg'));
-  catBass.push(loadImage('bassPlay2.jpg'));
-  catOthers.push(loadImage('otherPlay1.jpg'));
-  catOthers.push(loadImage('otherPlay2.jpg'));
+  catVocal.push(loadImage('assets/CatsPrototype/Cat3.jpg'));
+  catVocal.push(loadImage('assets/CatsPrototype/Cat1.jpg'));
+  catVocal.push(loadImage('assets/CatsPrototype/Cat2.jpg'));
+  catDrum.push(loadImage('assets/CatsPrototype/drumsIdle.jpg'));
+  catDrum.push(loadImage('assets/CatsPrototype/drumsPlay1.jpg'));
+  catDrum.push(loadImage('assets/CatsPrototype/drumsPlay2.jpg'));
+  catBass.push(loadImage('assets/CatsPrototype/bassIdle.jpg'));
+  catBass.push(loadImage('assets/CatsPrototype/bassPlay1.jpg'));
+  catBass.push(loadImage('assets/CatsPrototype/bassPlay2.jpg'));
+  catOthers.push(loadImage('assets/CatsPrototype/otherPlay1.jpg'));
+  catOthers.push(loadImage('assets/CatsPrototype/otherPlay2.jpg'));
 
-  carWheel.push(loadImage('Proto_CarWheel.png'));
-  carWheel.push(loadImage('Proto_CarWheelL.png'));
-  carWheel.push(loadImage('Proto_CarWheelR.png'));
+  carWheel.push(loadImage('assets/CarPrototype/Proto_CarWheel.png'));
+  carWheel.push(loadImage('assets/CarPrototype/Proto_CarWheelL.png'));
+  carWheel.push(loadImage('assets/CarPrototype/Proto_CarWheelR.png'));
+  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperL.png'));
+  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperLM.png'));
+  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperM.png'));
+  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperRM.png'));
+  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperR.png'));
+  bg = loadImage('assets/CarPrototype/Proto_CarBase.png');
+  texture = loadImage('assets/textures/Texturelabs_Glass_157S.jpg');
+  font = loadFont('assets/fonts/DS-DIGIT.ttf');
 
-  carWiper.push(loadImage('Proto_CarWiperL.png'));
-  carWiper.push(loadImage('Proto_CarWiperLM.png'));
-  carWiper.push(loadImage('Proto_CarWiperM.png'));
-  carWiper.push(loadImage('Proto_CarWiperRM.png'));
-  carWiper.push(loadImage('Proto_CarWiperR.png'));
-
-  bg = loadImage('Proto_CarBase.png');
+  carBG = loadImage('assets/CarAssets/bg.png');
+  wheel = loadImage('assets/CarAssets/wheel.png');
+  handbrake = loadImage('assets/CarAssets/handbrake.png');
+  helmet = loadImage('assets/CarAssets/helmet.png');
 }
 
 let volumes = [];

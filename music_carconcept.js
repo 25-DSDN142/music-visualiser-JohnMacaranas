@@ -12,6 +12,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode(CENTER)
   textSize(24);
   image(bg, 0, 0);
+  // push();
+  // blendMode(OVERLAY);
+  // image(texture, 0, 0);
+  // pop();
   
    let bar_spacing = height / 10;
    let bar_height = width / 12;
@@ -99,4 +103,11 @@ for(i = 1; i < otherMap; i++){
   strokeWeight(10);
   line(lineStart+225, lineStep, lineEnd+225, lineStep);
 }
+
+let speedo = int(map(vocal, 0 , 100, 95, 110));
+
+textFont(font);
+textSize(100);
+text(speedo, 400, 400,);
+
 }
