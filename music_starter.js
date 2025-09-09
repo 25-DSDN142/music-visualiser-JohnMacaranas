@@ -106,15 +106,16 @@ if(count >= 0 && count <= 16 || count > 152 && count <= 231){ //carExt
    let carX = carWidth/2*carSwerve
 
    push();
-   translate(carSpeed-carX, 645+carY);
-   scale(carSwerve);
-   if(carSwerve > MinScale){
-      image(tinyCarL, 0, -carHeight);
-   } else if(carSwerve < MaxScale){
-      image(tinyCarR, 0, -carHeight);
-   } else {
-      image(tinyCar, 0, -carHeight);
-   }
+   translate(carSpeed, 645+50);
+   scale(1);
+   // if(carSwerve > MinScale){
+   //    image(tinyCarL, 0, -carHeight);
+   // } else if(carSwerve < MaxScale){
+   //    image(tinyCarR, 0, -carHeight);
+   // } else {
+   //    image(tinyCar, 0, -carHeight);
+   // }
+   image(tinyCar, 0, -carHeight);
    console.log(carSwerve);
    pop();
 
