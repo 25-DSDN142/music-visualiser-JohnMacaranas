@@ -21,17 +21,18 @@ let catDrum = [];
 let catBass = [];
 let catOthers = [];
 
-let carWheel = [];
-let carWiper = [];
-
-let bg;
-let texture;
 let font;
 
 let wheel;
 let carBG;
 let handbrake;
 let helmet;
+let tinyCar;
+let gradient;
+let city;
+let tinyCarTurn = [];
+let tinyCarL;
+let tinyCarR;
 
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
@@ -73,22 +74,27 @@ function preload() {
   catOthers.push(loadImage('assets/CatsPrototype/otherPlay1.jpg'));
   catOthers.push(loadImage('assets/CatsPrototype/otherPlay2.jpg'));
 
-  carWheel.push(loadImage('assets/CarPrototype/Proto_CarWheel.png'));
-  carWheel.push(loadImage('assets/CarPrototype/Proto_CarWheelL.png'));
-  carWheel.push(loadImage('assets/CarPrototype/Proto_CarWheelR.png'));
-  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperL.png'));
-  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperLM.png'));
-  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperM.png'));
-  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperRM.png'));
-  carWiper.push(loadImage('assets/CarPrototype/Proto_CarWiperR.png'));
-  bg = loadImage('assets/CarPrototype/Proto_CarBase.png');
-  texture = loadImage('assets/textures/Texturelabs_Glass_157S.jpg');
   font = loadFont('assets/fonts/DS-DIGIT.ttf');
 
   carBG = loadImage('assets/CarAssets/bg.png');
   wheel = loadImage('assets/CarAssets/wheel.png');
   handbrake = loadImage('assets/CarAssets/handbrake.png');
   helmet = loadImage('assets/CarAssets/helmet.png');
+  tinyCar = loadImage('assets/CarAssets/tiny car.png');
+  gradient = loadImage('assets/CarAssets/gradient.png');
+  city = loadImage('assets/CarAssets/city.png');
+  tinyCarTurn.push(loadImage('assets/CarAssets/tiny car.png'));
+  tinyCarTurn.push(loadImage('assets/CarAssets/tiny carl.png'));
+  tinyCarTurn.push(loadImage('assets/CarAssets/tiny car.png'));
+  tinyCarTurn.push(loadImage('assets/CarAssets/tiny carr.png'));
+  tinyCarTurn.push(loadImage('assets/CarAssets/tiny car.png'));
+  tinyCarL = loadImage('assets/CarAssets/tiny carl.png');
+  tinyCarR = loadImage('assets/CarAssets/tiny carr.png');
+
+  // tinyCarR.push(loadImage('assets/CarAssets/tiny car.png'));
+
+
+  
 }
 
 let volumes = [];
