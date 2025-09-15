@@ -14,7 +14,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 // changes 
 
 let count = int(counter/60);
-if(count >= 0 && count <= 16 || count > 152 && count <= 231){ //carExt Shots
+if(count >= 0 && count <= 16 || count >= 152 && count <= 231){ //carExt Shots
 
    //background
    image(Bg3PP0, 0, 0);
