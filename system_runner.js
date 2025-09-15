@@ -1,5 +1,5 @@
-const canvasWidth = 540;
-const canvasHeight = 960;
+const canvasWidth = 1920;
+const canvasHeight = 1080;
 
 
 let mainCanvas;
@@ -15,6 +15,31 @@ let songIsPlaying = false;
 let songEpoch = 0;              // millis when song starts
 let table;
 let words;
+
+//concept
+let catVocal = [];
+let catDrum = [];
+let catBass = [];
+let catOthers = [];
+
+let wheel;
+let carBG;
+let handbrake;
+let helmet;
+let tinyCar;
+let gradient;
+let city;
+
+//final
+let Chasis3PP;
+let Tires3PP;
+let Bg3PP;
+let Shadow3PP;
+let Lights3PP;
+let Bg3PP0;
+let FPPCar;
+let FPPWheel;
+
 
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
@@ -43,6 +68,41 @@ function songLoadedSoFar(soFar) {
 function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
+
+  //concept images
+  catVocal.push(loadImage('assets/Concept1.CatsPrototype/Cat3.jpg'));
+  catVocal.push(loadImage('assets/Concept1.CatsPrototype/Cat1.jpg'));
+  catVocal.push(loadImage('assets/Concept1.CatsPrototype/Cat2.jpg'));
+  catDrum.push(loadImage('assets/Concept1.CatsPrototype/drumsIdle.jpg'));
+  catDrum.push(loadImage('assets/Concept1.CatsPrototype/drumsPlay1.jpg'));
+  catDrum.push(loadImage('assets/Concept1.CatsPrototype/drumsPlay2.jpg'));
+  catBass.push(loadImage('assets/Concept1.CatsPrototype/bassIdle.jpg'));
+  catBass.push(loadImage('assets/Concept1.CatsPrototype/bassPlay1.jpg'));
+  catBass.push(loadImage('assets/Concept1.CatsPrototype/bassPlay2.jpg'));
+  catOthers.push(loadImage('assets/Concept1.CatsPrototype/otherPlay1.jpg'));
+  catOthers.push(loadImage('assets/Concept1.CatsPrototype/otherPlay2.jpg'));
+
+  carBG = loadImage('assets/Concept2.CarPrototype/bg.png');
+  wheel = loadImage('assets/Concept2.CarPrototype/wheel.png');
+  handbrake = loadImage('assets/Concept2.CarPrototype/handbrake.png');
+  helmet = loadImage('assets/Concept2.CarPrototype/helmet.png');
+  tinyCar = loadImage('assets/Concept2.CarPrototype/tiny car.png');
+  gradient = loadImage('assets/Concept2.CarPrototype/gradient.png');
+  city = loadImage('assets/Concept2.CarPrototype/city.png');
+
+  //final images
+  Chasis3PP = loadImage('assets/Final.CarAssets/3PPChasis.png');
+  Tires3PP = loadImage('assets/Final.CarAssets/3PPTires.png');
+  Bg3PP = loadImage('assets/Final.CarAssets/3PPBg.png');
+  Shadow3PP = loadImage('assets/Final.CarAssets/3PPShadow.png');
+  Lights3PP = loadImage('assets/Final.CarAssets/3PPLights.png');
+  Bg3PP0 = loadImage('assets/Final.CarAssets/3PPBg0.png')
+
+  FPPCar = loadImage('assets/Final.CarAssets/FPPBg.png');
+  FPPWheel = loadImage('assets/Final.CarAssets/FPPWheel.png');
+
+
+  
 }
 
 let volumes = [];
@@ -52,7 +112,6 @@ function setup() {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
   song = loadSound('song.mp3', songLoaded, songLoadedError, songLoadedSoFar);  
-  
   frameRate(60);
   angleMode(DEGREES);
 
